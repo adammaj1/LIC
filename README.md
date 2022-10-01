@@ -1,5 +1,7 @@
 # LIC
 
+Basic LIC by [Chang Sha](https://github.com/pkuwwt/LIC/blob/master/basic_lic.c)
+
 
 
 # Git
