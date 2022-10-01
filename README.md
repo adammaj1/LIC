@@ -12,6 +12,14 @@ LIC image ( result, output)
    
 ![](./png/LIC.png "LIC")  
 
+
+
+# See also
+* [2DFlowVisualization by Andres Bejarano](https://github.com/andresbejarano/2DFlowVisualization)
+* [fluid-simulator by Linus Mossberg](https://github.com/linusmossberg/fluid-simulator)
+* [LIC by M. Harper Langston](https://github.com/harperlangston/LIC)
+
+
 # Git
 
 create a new repository on the command line
