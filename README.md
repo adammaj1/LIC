@@ -18,6 +18,12 @@ LIC image ( result, output)
 * [2DFlowVisualization by Andres Bejarano](https://github.com/andresbejarano/2DFlowVisualization)
 * [fluid-simulator by Linus Mossberg](https://github.com/linusmossberg/fluid-simulator)
 * [LIC by M. Harper Langston](https://github.com/harperlangston/LIC)
+* [LIC by  Dzhelil Rufat](https://github.com/drufat/licpy)
+* [LIC by greenhol](https://github.com/greenhol/deLICious)
+* [fieldplay by anvaka](https://github.com/anvaka/fieldplay)
+* [Vector-Field-Topolgy-2D by zaman13](https://github.com/zaman13/Vector-Field-Topolgy-2D)
+
+
 
 
 # Git
