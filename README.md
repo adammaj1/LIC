@@ -2,7 +2,9 @@
 
 Basic LIC by [Chang Sha](https://github.com/pkuwwt/LIC/blob/master/basic_lic.c)
 
-
+![](./png/noise.png "noise")  
+   
+![](./png/LIC.png "LIC")  
 
 # Git
 
