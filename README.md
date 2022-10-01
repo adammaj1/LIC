@@ -2,7 +2,13 @@
 
 Basic LIC by [Chang Sha](https://github.com/pkuwwt/LIC/blob/master/basic_lic.c)
 
+
+White noise  ( sand ) 
+
 ![](./png/noise.png "noise")  
+
+
+LIC image ( result, output)  
    
 ![](./png/LIC.png "LIC")  
 
