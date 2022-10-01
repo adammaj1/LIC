@@ -1,5 +1,7 @@
 /* 
 
+
+original code : 
 https://github.com/pkuwwt/LIC/blob/master/basic_lic.c
 Chang Sha
 
@@ -23,41 +25,8 @@ gcc basic_lic.c -Wall -Wextra -lm
 #define  LINE_SQUARE_CLIP_MAX 100000.0f
 #define  VECTOR_COMPONENT_MIN   0.050000f 
 
-void WriteImage2PPM(int n_xres,int n_yres,unsigned char* pImage,const char* f_name);
-void SyntheszSaddle(int  n_xres,  int     n_yres,  float*   pVectr);
-void NormalizVectrs(int  n_xres,  int     n_yres,  float*   pVectr);
-void GenBoxFiltrLUT(int  LUTsiz,  float*  p_LUT0,  float*   p_LUT1);
-void MakeWhiteNoise(int  n_xres,  int     n_yres,  unsigned char*  pNoise);
-void FlowImagingLIC(int  n_xres,  int     n_yres,  float*   pVectr,   unsigned char*  pNoise,  
-         unsigned char*  pImage,  float*  p_LUT0,  float*   p_LUT1,  float  krnlen);
 
-int main(void)
-{
-  int    n_xres = SQUARE_FLOW_FIELD_SZ;
-  int    n_yres = SQUARE_FLOW_FIELD_SZ;
-  float*   pVectr = (float*         ) malloc( sizeof(float        ) * n_xres * n_yres * 2 );
-  float*   p_LUT0 = (float*   ) malloc( sizeof(float        ) * DISCRETE_FILTER_SIZE);
-  float*   p_LUT1 = (float*   ) malloc( sizeof(float        ) * DISCRETE_FILTER_SIZE);
-  unsigned char* pNoise = (unsigned char* ) malloc( sizeof(unsigned char) * n_xres * n_yres     );
-  unsigned char* pImage = (unsigned char* ) malloc( sizeof(unsigned char) * n_xres * n_yres     );
 
-  SyntheszSaddle(n_xres, n_yres, pVectr);
-  
-  NormalizVectrs(n_xres, n_yres, pVectr);
-  
-  MakeWhiteNoise(n_xres, n_yres, pNoise);
-  WriteImage2PPM(n_xres, n_yres, pNoise, "noise.ppm");
-  GenBoxFiltrLUT(DISCRETE_FILTER_SIZE, p_LUT0, p_LUT1);
-  FlowImagingLIC(n_xres, n_yres, pVectr, pNoise, pImage, p_LUT0, p_LUT1, LOWPASS_FILTR_LENGTH);
-  WriteImage2PPM(n_xres, n_yres, pImage, "LIC.ppm");
-
-  free(pVectr); pVectr = NULL;
-  free(p_LUT0); p_LUT0 = NULL;
-  free(p_LUT1); p_LUT1 = NULL;
-  free(pNoise); pNoise = NULL;
-  free(pImage); pImage = NULL;
-  return 0;
-}
 
 
 ///  synthesize a saddle-shaped vector field     ///
@@ -66,11 +35,11 @@ void SyntheszSaddle(int  n_xres,  int  n_yres,  float*  pVectr)
   int i,j; 
   for(j = 0;  j < n_yres;  j ++)
      for(i = 0;  i < n_xres;  i ++)
-  { 
-   int  index = (  (n_yres - 1 - j) * n_xres + i  )  <<  1;
-   pVectr[index    ] = - ( j / (n_yres - 1.0f) - 0.5f );
-   pVectr[index + 1] =     i / (n_xres - 1.0f) - 0.5f;  
-     } 
+  	{ 
+   		int  index = (  (n_yres - 1 - j) * n_xres + i  )  <<  1;
+   		pVectr[index    ] = - ( j / (n_yres - 1.0f) - 0.5f ); // y
+   		pVectr[index + 1] =     i / (n_xres - 1.0f) - 0.5f;   // x 
+     	} 
 }
 
 
@@ -81,12 +50,11 @@ void    NormalizVectrs(int  n_xres,  int  n_yres,  float*  pVectr)
   for(j = 0;  j < n_yres;  j ++)
      for(i = 0;  i < n_xres;  i ++)
      { 
-   int  index = (j * n_xres + i) << 1;
-         float vcMag = (float)(  sqrt( (double)(pVectr[index] * pVectr[index] + pVectr[index + 1] * pVectr[index + 1]) )  );
-
-   float scale = (vcMag == 0.0f) ? 0.0f : 1.0f / vcMag;
-   pVectr[index    ] *= scale;
-            pVectr[index + 1] *= scale;
+   	int  index = (j * n_xres + i) << 1;
+        float vcMag = (float)(  sqrt( (double)(pVectr[index] * pVectr[index] + pVectr[index + 1] * pVectr[index + 1]) )  );
+   	float scale = (vcMag == 0.0f) ? 0.0f : 1.0f / vcMag;
+   	pVectr[index    ] *= scale; // y
+        pVectr[index + 1] *= scale; // x
      }
 }
 
@@ -260,3 +228,38 @@ void FlowImagingLIC(int     n_xres,  int     n_yres,  float*  pVectr,  unsigned 
    pImage[j * n_xres + i] = (unsigned char) texVal;
   }  
 }
+
+
+
+int main(void)
+{
+  int    n_xres = SQUARE_FLOW_FIELD_SZ;
+  int    n_yres = SQUARE_FLOW_FIELD_SZ;
+  
+  float*   pVectr = (float*   ) malloc( sizeof(float        ) * n_xres * n_yres * 2 );
+  float*   p_LUT0 = (float*   ) malloc( sizeof(float        ) * DISCRETE_FILTER_SIZE);
+  float*   p_LUT1 = (float*   ) malloc( sizeof(float        ) * DISCRETE_FILTER_SIZE);
+  
+  
+  unsigned char* pNoise = (unsigned char* ) malloc( sizeof(unsigned char) * n_xres * n_yres     );
+  unsigned char* pImage = (unsigned char* ) malloc( sizeof(unsigned char) * n_xres * n_yres     );
+
+  SyntheszSaddle(n_xres, n_yres, pVectr);
+  NormalizVectrs(n_xres, n_yres, pVectr);
+  
+  MakeWhiteNoise(n_xres, n_yres, pNoise);
+  WriteImage2PPM(n_xres, n_yres, pNoise, "noise.ppm");
+  
+  GenBoxFiltrLUT(DISCRETE_FILTER_SIZE, p_LUT0, p_LUT1);
+  FlowImagingLIC(n_xres, n_yres, pVectr, pNoise, pImage, p_LUT0, p_LUT1, LOWPASS_FILTR_LENGTH);
+  WriteImage2PPM(n_xres, n_yres, pImage, "LIC.ppm");
+
+  free(pVectr); pVectr = NULL;
+  free(p_LUT0); p_LUT0 = NULL;
+  free(p_LUT1); p_LUT1 = NULL;
+  free(pNoise); pNoise = NULL;
+  free(pImage); pImage = NULL;
+  return 0;
+}
+
+
