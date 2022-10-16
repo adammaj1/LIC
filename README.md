@@ -2,8 +2,17 @@
 
 Original repo : [Basic LIC by Chang Sha](https://github.com/pkuwwt/LIC/blob/master/basic_lic.c)
 
+## Elements
+* 2 inputs 
+  * 2D vector field
+  * white noise 
+* one output ( LIC image)
 
-A 2D static (=  time independent) saddle-shaped vector field ( first input : [strong wind](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm) = ) is defined by a real-valued function F of two real variables x and y
+
+
+**First input: **
+* [strong wind](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm) 
+* a 2D static (=  time independent) saddle-shaped vector field  defined by a real-valued function F of two real variables x and y
 
   z = F(x,y)
 
@@ -24,15 +33,20 @@ void SyntheszSaddle(int  n_xres,  int  n_yres,  float*  pVectr)
 
 ```
 
-White noise  (second input: [massless fine sand](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm)  =  ) 
+**Second input: **
+* White noise  
+* [massless fine sand](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm)   
 
 ![](./png/noise.png "noise")  
 
 
-LIC image ( result, output: it ["emulates what happens when a rectangular area of massless fine sand is blown by strong wind"](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm) )  
+**Output:**
+* LIC image which ["emulates what happens when a rectangular area of massless fine sand is blown by strong wind"](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm) )  
    
 ![](./png/LIC.png "LIC")  
 
+
+## algorithm 
 
 
 # See also
