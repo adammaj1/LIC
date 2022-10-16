@@ -10,7 +10,7 @@ Original repo : [Basic LIC by Chang Sha](https://github.com/pkuwwt/LIC/blob/mast
 
 
 
-**First input: **
+__First input:__
 * [strong wind](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm) 
 * a 2D static (=  time independent) saddle-shaped vector field  defined by a real-valued function F of two real variables x and y
 
