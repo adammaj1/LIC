@@ -3,7 +3,12 @@
 Original repo : [Basic LIC by Chang Sha](https://github.com/pkuwwt/LIC/blob/master/basic_lic.c)
 
 
-A 2D static saddle-shaped vector field ( first input : [strong wind](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm) = )
+A 2D static (=  time independent) saddle-shaped vector field ( first input : [strong wind](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm) = ) is defined by a real-valued function F of two real variables x and y
+
+  z = F(x,y)
+
+
+Here is it's c implementation: 
 ```
 void SyntheszSaddle(int  n_xres,  int  n_yres,  float*  pVectr)
 {
