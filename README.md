@@ -1,14 +1,30 @@
 # LIC
 
-Basic LIC by [Chang Sha](https://github.com/pkuwwt/LIC/blob/master/basic_lic.c)
+Original repo : [Basic LIC by Chang Sha](https://github.com/pkuwwt/LIC/blob/master/basic_lic.c)
 
 
-White noise  ( sand ) 
+A 2D static saddle-shaped vector field ( first input : [strong wind](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm) = )
+```
+void SyntheszSaddle(int  n_xres,  int  n_yres,  float*  pVectr)
+{
+  int i,j; 
+  for(j = 0;  j < n_yres;  j ++) // y
+     for(i = 0;  i < n_xres;  i ++) // x
+  	{ 
+   		int  index = (  (n_yres - 1 - j) * n_xres + i  )  <<  1;
+   		pVectr[index    ] = - ( j / (n_yres - 1.0f) - 0.5f ); // y
+   		pVectr[index + 1] =     i / (n_xres - 1.0f) - 0.5f;   // x 
+     	} 
+}
+
+```
+
+White noise  (second input: [massless fine sand](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm)  =  ) 
 
 ![](./png/noise.png "noise")  
 
 
-LIC image ( result, output)  
+LIC image ( result, output: it ["emulates what happens when a rectangular area of massless fine sand is blown by strong wind"](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm) )  
    
 ![](./png/LIC.png "LIC")  
 
@@ -40,7 +56,8 @@ git push -u origin main
 ```
 ## Local repo
 ```
-~/Dokumenty/mandelbrot_planes 
+~/Dokumenty/lic/basic_lic/ 
+
 ```
 
 
