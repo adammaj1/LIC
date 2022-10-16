@@ -1,13 +1,12 @@
 # LIC
 
-[LIC (Line Integral Convolution)](https://en.wikipedia.org/wiki/Line_integral_convolution) is a [scientific visualization](Scientific visualization) technique
+[LIC (Line Integral Convolution)](https://en.wikipedia.org/wiki/Line_integral_convolution) is a [scientific visualization](https://en.wikipedia.org/wiki/Scientific_visualization) technique
 * based on 
   * [texture](https://en.wikipedia.org/wiki/Texture_advection) ( not like geometry-based approaches such as arrow plots, streamlines, pathlines, timelines, streaklines, particle tracing, surface particles, stream arrows, stream tubes, stream balls, flow volumes and topological analysis)
   * integration
 * a global method: all structural features of the vector field are displayed
 * it has high computational expense ( in comparisen to low computational expense of a geometry-based methods) 
-* LIC image conveys the orientation of the field vectors, but it does not indicate their direction
-* Basic LIC images (without color and animation) do not show the length of the vectors (or the strength of the field) 
+* basic LIC image (grayscale without color and animation) conveys the orientation of the field vectors, but it does not indicate their direction, the length of the vectors (or the strength of the field) 
 * good for identifying critical points
 
 
@@ -74,12 +73,17 @@ __Output: LIC image__
 
 ## algorithm 
 * ["It employs a low-pass filter to convolve an input noise texture along pixel-centered symmetrically bi-directional streamlines"](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm) 
+* Data Integration = The process of consolidating data from multiple sources
+* line integral is an integral where the function to be integrated is evaluated along a curve
+
+
 
 ## code
 
 Original repo : [Basic LIC by Chang Sha](https://github.com/pkuwwt/LIC/blob/master/basic_lic.c)
 
 # See also
+* [par_streamlines by Philip Rideout in 2019.](https://prideout.net/blog/par_streamlines/), [c code](https://github.com/prideout/streamlines_demo), 
 * [2DFlowVisualization by Andres Bejarano](https://github.com/andresbejarano/2DFlowVisualization)
 * [fluid-simulator by Linus Mossberg](https://github.com/linusmossberg/fluid-simulator)
 * [LIC by M. Harper Langston](https://github.com/harperlangston/LIC)
@@ -87,9 +91,9 @@ Original repo : [Basic LIC by Chang Sha](https://github.com/pkuwwt/LIC/blob/mast
 * [LIC by greenhol](https://github.com/greenhol/deLICious)
 * [fieldplay by anvaka](https://github.com/anvaka/fieldplay)
 * [Vector-Field-Topolgy-2D by zaman13](https://github.com/zaman13/Vector-Field-Topolgy-2D)
-
-
-
+* [Line integral convolution algorithm for numpy arrays by Steffen Brinkmann](https://gitlab.com/szs/lic)
+* [Line Integral Convolution for Flow Visualization by Han-Wei Shen](https://www.youtube.com/watch?v=qzFArXB3AFM)
+* [ParaView: Line_Integral_Convolution](https://www.paraview.org/Wiki/ParaView/Line_Integral_Convolution)
 
 # Git
 
