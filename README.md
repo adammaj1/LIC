@@ -33,14 +33,14 @@ void SyntheszSaddle(int  n_xres,  int  n_yres,  float*  pVectr)
 
 ```
 
-**Second input: **
+__Second input:__
 * White noise  
 * [massless fine sand](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm)   
 
 ![](./png/noise.png "noise")  
 
 
-**Output:**
+__Output:__
 * LIC image which ["emulates what happens when a rectangular area of massless fine sand is blown by strong wind"](http://www.zhanpingliu.org/research/flowvis/LIC/LIC.htm) )  
    
 ![](./png/LIC.png "LIC")  
