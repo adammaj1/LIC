@@ -21,9 +21,10 @@
 ![](./png/cosinus_LIC.png "LIC") 
 
 
-      
-  other2_LIC.png  sink_LIC.png    source_LIC.png
-  other_LIC.png     spiral_LIC.png
+ToDo:
+* sink_LIC.png    
+* source_LIC.png
+* spiral_LIC.png
 
 
 
