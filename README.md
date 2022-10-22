@@ -1,3 +1,35 @@
+![](./png/noise.png "noise")  
+
+![](./png/saddle_LIC.png "LIC")  
+
+![](./png/bowl_LIC.png "LIC")  
+
+![](./png/sinus_LIC.png "LIC")  
+
+![](./png/sinus2_LIC.png "LIC") 
+
+![](./png/sinus3_LIC.png "LIC")   
+
+![](./png/cosinus_LIC.png "LIC") 
+
+![](./png/center_LIC.png "LIC") 
+
+![](./png/simple_LIC.png "LIC") 
+
+![](./png/dipole_LIC.png "LIC") 
+
+![](./png/cosinus_LIC.png "LIC") 
+
+
+      
+  other2_LIC.png  sink_LIC.png    source_LIC.png
+  other_LIC.png     spiral_LIC.png
+
+
+
+
+
+
 # LIC
 
 [LIC (Line Integral Convolution)](https://en.wikipedia.org/wiki/Line_integral_convolution) is a [scientific visualization](https://en.wikipedia.org/wiki/Scientific_visualization) technique
@@ -37,21 +69,7 @@ __First input:__
   z = F(x,y)
 ```
 
-Here is it's c implementation of saddle-shaped field: 
-```
-void SyntheszSaddle(int  n_xres,  int  n_yres,  float*  pVectr)
-{
-  int i,j; 
-  for(j = 0;  j < n_yres;  j ++) // y
-     for(i = 0;  i < n_xres;  i ++) // x
-  	{ 
-   		int  index = (  (n_yres - 1 - j) * n_xres + i  )  <<  1;
-   		pVectr[index    ] = - ( j / (n_yres - 1.0f) - 0.5f ); // y
-   		pVectr[index + 1] =     i / (n_xres - 1.0f) - 0.5f;   // x 
-     	} 
-}
 
-```
 
 __Second input:__
 * White noise  
@@ -81,6 +99,22 @@ __Output: LIC image__
 ## code
 
 Original repo : [Basic LIC by Chang Sha](https://github.com/pkuwwt/LIC/blob/master/basic_lic.c)
+
+Here is it's c implementation of saddle-shaped field: 
+```
+void SyntheszSaddle(int  n_xres,  int  n_yres,  float*  pVectr)
+{
+  int i,j; 
+  for(j = 0;  j < n_yres;  j ++) // y
+     for(i = 0;  i < n_xres;  i ++) // x
+  	{ 
+   		int  index = (  (n_yres - 1 - j) * n_xres + i  )  <<  1;
+   		pVectr[index    ] = - ( j / (n_yres - 1.0f) - 0.5f ); // y
+   		pVectr[index + 1] =     i / (n_xres - 1.0f) - 0.5f;   // x 
+     	} 
+}
+
+```
 
 # See also
 * [par_streamlines by Philip Rideout in 2019.](https://prideout.net/blog/par_streamlines/), [c code](https://github.com/prideout/streamlines_demo), 
