@@ -136,6 +136,13 @@ then link the images:
 
 ```
 
+to overwrite
+
+```
+git mv -f 
+```
+
+
 
 ## Github
 * [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
