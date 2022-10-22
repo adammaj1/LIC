@@ -95,6 +95,10 @@ Original repo : [Basic LIC by Chang Sha](https://github.com/pkuwwt/LIC/blob/mast
 * [Line Integral Convolution for Flow Visualization by Han-Wei Shen](https://www.youtube.com/watch?v=qzFArXB3AFM)
 * [ParaView: Line_Integral_Convolution](https://www.paraview.org/Wiki/ParaView/Line_Integral_Convolution)
 
+
+__Vector field__
+* [Field Play : Vector fields explorer. Made with WebGL, love and passion by Andrei Kashcha ( anvaka) ](https://github.com/anvaka/fieldplay)
+
 # Git
 
 create a new repository on the command line
